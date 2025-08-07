@@ -8,6 +8,24 @@
         <title>To-Do-List</title>
     </head>
     <body>
+
+        <form action="/create" method="post">
+            <input type="text" name="task" id="task" placeholder="Insira uma tarefa">
+            <button id="addButton" type="submit">Adicionar</button>
+        </form>
+
+        
+
+        <ul>
+            <% tasksList.forEach((task) => { %>
+                <li>
+                    <%= task.task %> | <%= task.date.toLocaleDateString('pt-BR') %>
+                </li>
+            <% }); %>
+        </ul>
+
+        
+
         <p>weba</p>
 
         <script src="script.js"></script>

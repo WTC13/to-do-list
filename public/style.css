@@ -2,6 +2,6 @@ body{
     background-color: blue;
 }
 
-p{
+li,p{
     color: aqua
 }
