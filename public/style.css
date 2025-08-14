@@ -12,6 +12,7 @@
     --font_color: #ececec;
     --bg-blue: #3359e4;
     --bg-black: #2b2929;
+    --bg-red: #cf3d3d;
 }
 
 body{
@@ -89,18 +90,16 @@ ul li:nth-child(odd){
 
 ul li:hover{
     background-color: var(--font_color);
-    /* box-shadow: 0 0 8px 8px var(--bg-blue); */
 }
 
 ul li a{
     text-decoration: none;
-    /* color: var(--font_color); */
     font-size: 1.3rem;
+    padding-left: 2rem;
 
 }
 
 ul li span{
-    /* font-style: italic; */
     font-size: 1rem;
     padding-left: 1rem;
 }
@@ -223,4 +222,69 @@ i{
 #btnYes:hover{
     background-color: #63cc33;
     color: var(--bg-black);
+}
+
+.message{
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message-success{
+    background-color: #00008b;
+    color: var(--font_color);
+    font-weight: 600;
+}
+
+.message-danger{
+    background-color: var(--bg-red);
+    color: #ececec;
+    font-weight: 600;
+}
+
+#close-message i{
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    padding: 0rem 2rem;
+}
+
+#close-message i:hover{
+    color: var(--bg-black);
+}
+
+li.check-true{
+    background-color: var(--bg-red);
+    color: var(--font_color);
+    text-decoration: line-through;
+}
+
+a.check-true::before{
+    content: "";
+    position: absolute;
+    border: var(--bg-black) solid;
+    top: 12px;
+    left: 16px;
+    height: 15px;
+    width: 7px;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+a.check-false::before{
+    content: "";
+    position: absolute;
+    border: var(--bg-black) solid;
+    top: 12px;
+    left: 15px;
+    height: 16px;
+    width: 16px;
+    border-width: 2px;
 }
