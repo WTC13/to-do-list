@@ -11,24 +11,14 @@
     <body>
 
         <% if(message != "") { %>
-            <section class="message message-<%= type %>">
-                <p><%= message %></p>
-                <span id="close-message"><i class="bi bi-x-square"></i></span>
-            </section>
+            <%- include('./components/message-alert') %>
         <% } %>
 
         <header>
-            <h1>Listagem de Tarefas</h1>
             <% if (task == null) { %>
-            <form action="/create" method="post">
-                <input type="text" name="task" id="task" placeholder="Insira uma tarefa">
-                <button id="addButton" type="submit">Adicionar</button>
-            </form>
-            <% } else { %> 
-            <form action="/updateOne/<%= task._id %>" method="post">
-                <input type="text" name="task" id="task" value="<%= task.task %>">
-                <button id="updateButton" type="submit">Atualizar</button>
-            </form>
+                <%- include('./components/form', {titleForm: "Listagem de ", action: "create", value:"", idBtn: "addButton", nameBtn: "Adicionar"}); %>
+            <% } else { %>
+                <%- include('./components/form', {titleForm: "Coloque nome na tarefa", action: `updateOne/${task._id}`, value: task.task, idBtn: "updateButton", nameBtn: "Atualizar"}); %>
             <% } %>
         </header>
 
@@ -50,22 +40,7 @@
         </section>
         
         <% if (taskDelete != null) { %>
-
-        <section id="modal">
-            <div id="card">
-                <div id="head">
-                    <h2>Confirmação</h2>
-                    <a href="/" id="close"><i class="bi bi-x-square"></i></a>
-                </div>
-                <hr>
-                <p>Deseja realmente apagar a tarefa: <%= taskDelete.task %> ?</p>
-                <div id="btns">
-                    <a href="/deleteOne/<%= taskDelete._id %>" id="btnYes">Sim</a>
-                    <a href="/" id="btnNot">Não</a>
-                </div>
-            </div>
-        </section>
-
+            <%- include('./components/modalDel', {task: taskDelete}) %>
         <% } %>
  
         <p>weba</p>

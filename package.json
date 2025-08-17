@@ -18,5 +18,8 @@
     "mongoose": "^8.17.0",
     "nodemon": "^3.1.10",
     "port": "^0.8.1"
+  },
+  "devDependencies": {
+    "dotenv": "^17.2.1"
   }
 }
